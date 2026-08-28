@@ -1,0 +1,46 @@
+{
+  "categories": [
+    { "id": "steel",   "code": "STL", "label": "Structural Steel" },
+    { "id": "precast", "code": "PRE", "label": "Precast Concrete" },
+    { "id": "tools",   "code": "GEN", "label": "General Tools" }, 
+    { "id": "engineering",   "code": "ENG", "label": "Structural Engineering" }
+  ],
+  "apps": [
+    {
+      "name": "Beam Cut Optimizer",
+      "category": "steel",
+      "url": "https://bom-steel.streamlit.app",
+      "description": "Bin-packing optimizer for structural steel beam cutting, with Excel and PDF report generation."
+    },
+    {
+      "name": "Calc Package",
+      "category": "engineering",
+      "url": "https://calc-package.streamlit.app/",
+      "description": "Combines a cover Word document and multiple calculation files (PDF, Word, or TEDDS) into a single numbered, header-stamped, and hyperlinked PDF package."
+    },
+    {
+      "name": "PDF Highlighter",
+      "category": "tools",
+      "url": "https://mark-pdf.streamlit.app",
+      "description": "Marks up PDF engineering drawings with custom text callouts and highlights."
+    },
+    {
+      "name": "PDF Table Extractor",
+      "category": "tools",
+      "url": "https://pdf-xlsx.streamlit.app",
+      "description": "Pulls tables out of PDF drawings and documents into XLSX or Google Sheets."
+    },
+    {
+      "name": "Sheet Region Exporter",
+      "category": "precast",
+      "url": "https://view-print.streamlit.app",
+      "description": "Exports selected regions of drawing sheets as clean, print-ready views."
+    },
+    {
+      "name": "Group Rebar",
+      "category": "precast",
+      "url": "https://group-rebar.streamlit.app/",
+      "description": "Upload a precast panel sheet PDF, and the tool will auto-detect every rebar on both plan views and match them against the printed schedule. Simply confirm the bar sizes and select how many stock-length groups to split each direction into—the tool handles row placement automatically."
+    }
+  ]
+}

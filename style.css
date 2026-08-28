@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #121316;
+  --bg-deep: #08090a;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --ink: #f4f4f2;
+  --ink-muted: #9a9a97;
+  --surface: #1b1c1e;
+  --surface-hover: #212325;
+  --accent: #c4432b;
+  --accent-soft: rgba(196, 67, 43, 0.16);
+  --glow: #35e5d1;
+  --glow-soft: rgba(53, 229, 209, 0.16);
+  --steel: #8b939a;
+  --steel-dark: #3a3d40;
+  --radius: 3px;
+  --max: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  position: relative;
+  margin: 0;
+  background: radial-gradient(ellipse at 50% 0%, var(--bg) 0%, var(--bg-deep) 120%);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- Isometric tunnel backdrop ----------
+   concentric isometric hex rings sharing one centre, like precast concrete
+   lining rings receding down a bored tunnel toward a dark void, joined by
+   longitudinal rib lines. A slow outward pulse stands in for a light
+   travelling up the bore toward the viewer. Fixed + low contrast so it
+   reads as atmosphere behind the content, not a graphic sitting on top. */
+.tunnel-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.tunnel-bg svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tunnel-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0.5;
+  animation: tunnel-pulse 14s ease-out infinite;
+}
+
+@keyframes tunnel-pulse {
+  0%   { transform: scale(1);    opacity: 0.55; }
+  100% { transform: scale(4.6);  opacity: 0; }
+}
+
+body > *:not(.tunnel-bg) { position: relative; z-index: 1; }
+
+/* ---------- Top nav ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 40px 0;
+}
+
+.topbar__mark {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+}
+
+/* ---------- Filter bar (now reads as top-right nav links) ---------- */
+.filterbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.filter-chip {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: none;
+  color: var(--ink-muted);
+  border: none;
+  border-bottom: 1px solid transparent;
+  padding: 2px 0;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.filter-chip:hover {
+  color: var(--ink);
+}
+
+.filter-chip.is-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 64px 40px 48px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4.9vw, 59px);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 18px 0 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+
+/* ---------- Main / sheet index ---------- */
+main {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 8px 40px 80px;
+}
+
+.category-section {
+  margin-top: 56px;
+}
+
+.category-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.category-heading__code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.category-heading__label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.category-heading__count {
+  margin-left: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+/* editorial project tile: dark charcoal surface, big faint index number,
+   a small tunnel-ring glyph standing in for a thumbnail image, and a thin
+   glowing top seam — the one place the "bold tunnel" accent survives on
+   an otherwise clean, gallery-style grid. */
+.app-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 28px 24px 22px;
+  text-decoration: none;
+  transition: background 0.15s ease, box-shadow 0.2s ease;
+}
+
+.app-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--glow), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.app-card:hover {
+  background: var(--surface-hover);
+  box-shadow: inset 0 0 0 1px var(--accent), 0 0 24px var(--glow-soft);
+  z-index: 2;
+}
+
+.app-card:hover::before {
+  opacity: 0.7;
+}
+
+.app-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.app-card__icon {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 34px;
+  height: 34px;
+  opacity: 0.5;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.app-card__icon svg { width: 100%; height: 100%; }
+
+.app-card__icon polygon {
+  fill: none;
+  stroke: var(--steel);
+  stroke-width: 1.5;
+}
+
+.app-card:hover .app-card__icon {
+  opacity: 1;
+  transform: rotate(30deg);
+}
+
+.app-card:hover .app-card__icon polygon {
+  stroke: var(--glow);
+}
+
+.app-card__marker {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.app-card__marker span:first-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  background: var(--line);
+  padding: 2px 6px;
+  border-radius: var(--radius);
+}
+
+.app-card__marker span:last-child {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+  font-size: 26px;
+  color: var(--steel);
+  opacity: 0.55;
+}
+
+.app-card__name {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  padding-right: 40px;
+}
+
+.app-card__desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  flex-grow: 1;
+}
+
+.app-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.app-card__open {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.app-card__uses {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Empty state ---------- */
+.empty-state {
+  max-width: var(--max);
+  margin: 60px auto;
+  padding: 0 40px;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--ink-muted);
+}
+
+.empty-state p:first-child {
+  color: var(--ink);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.empty-state__hint code {
+  color: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 24px 40px 48px;
+  border-top: 1px solid var(--line);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+footer code {
+  color: var(--ink-muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 24px 20px 0;
+  }
+  .hero { padding: 40px 20px 32px; }
+  main, footer { padding-left: 20px; padding-right: 20px; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .app-card { transition: none; }
+  .tunnel-pulse { animation: none; opacity: 0.15; }
+}

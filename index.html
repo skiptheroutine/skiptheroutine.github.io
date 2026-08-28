@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Index</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="tunnel-bg" aria-hidden="true">
+    <svg viewBox="0 0 1000 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- spokes: longitudinal joints running from the outer ring to the void -->
+      <g stroke="#2c3740" stroke-width="1.5" opacity="0.35">
+        <line x1="500" y1="50"  x2="500" y2="345" />
+        <line x1="783" y1="167" x2="574" y2="376" />
+        <line x1="900" y1="450" x2="605" y2="450" />
+        <line x1="783" y1="733" x2="574" y2="524" />
+        <line x1="500" y1="850" x2="500" y2="555" />
+        <line x1="217" y1="733" x2="426" y2="524" />
+        <line x1="100" y1="450" x2="395" y2="450" />
+        <line x1="217" y1="167" x2="426" y2="376" />
+      </g>
+
+      <!-- ring 0: nearest, R400 -> R320 -->
+      <g opacity="0.95" fill="#3a4854">
+        <path d="M500,50 A400 400 0 0 1 783,167 L726,224 A320 320 0 0 0 500,130 Z" />
+        <path d="M783,167 A400 400 0 0 1 900,450 L820,450 A320 320 0 0 0 726,224 Z" />
+        <path d="M900,450 A400 400 0 0 1 783,733 L726,676 A320 320 0 0 0 820,450 Z" fill="#28323b" />
+        <path d="M783,733 A400 400 0 0 1 500,850 L500,770 A320 320 0 0 0 726,676 Z" fill="#1a2128" />
+        <path d="M500,850 A400 400 0 0 1 217,733 L274,676 A320 320 0 0 0 500,770 Z" fill="#1a2128" />
+        <path d="M217,733 A400 400 0 0 1 100,450 L180,450 A320 320 0 0 0 274,676 Z" fill="#1a2128" />
+        <path d="M100,450 A400 400 0 0 1 217,167 L274,224 A320 320 0 0 0 180,450 Z" fill="#28323b" />
+        <path d="M217,167 A400 400 0 0 1 500,50 L500,130 A320 320 0 0 0 274,224 Z" />
+        <g fill="#8b98a3">
+          <circle cx="500" cy="50" r="6" /><circle cx="783" cy="167" r="6" /><circle cx="900" cy="450" r="6" /><circle cx="783" cy="733" r="6" />
+          <circle cx="500" cy="850" r="6" /><circle cx="217" cy="733" r="6" /><circle cx="100" cy="450" r="6" /><circle cx="217" cy="167" r="6" />
+        </g>
+      </g>
+
+      <!-- ring 1, R320 -> R256 -->
+      <g opacity="0.82" fill="#34414c">
+        <path d="M500,130 A320 320 0 0 1 726,224 L681,269 A256 256 0 0 0 500,194 Z" />
+        <path d="M726,224 A320 320 0 0 1 820,450 L756,450 A256 256 0 0 0 681,269 Z" />
+        <path d="M820,450 A320 320 0 0 1 726,676 L681,631 A256 256 0 0 0 756,450 Z" fill="#242e36" />
+        <path d="M726,676 A320 320 0 0 1 500,770 L500,706 A256 256 0 0 0 681,631 Z" fill="#171d23" />
+        <path d="M500,770 A320 320 0 0 1 274,676 L319,631 A256 256 0 0 0 500,706 Z" fill="#171d23" />
+        <path d="M274,676 A320 320 0 0 1 180,450 L244,450 A256 256 0 0 0 319,631 Z" fill="#171d23" />
+        <path d="M180,450 A320 320 0 0 1 274,224 L319,269 A256 256 0 0 0 244,450 Z" fill="#242e36" />
+        <path d="M274,224 A320 320 0 0 1 500,130 L500,194 A256 256 0 0 0 319,269 Z" />
+        <g fill="#7c8994" opacity="0.85">
+          <circle cx="500" cy="130" r="5" /><circle cx="726" cy="224" r="5" /><circle cx="820" cy="450" r="5" /><circle cx="726" cy="676" r="5" />
+          <circle cx="500" cy="770" r="5" /><circle cx="274" cy="676" r="5" /><circle cx="180" cy="450" r="5" /><circle cx="274" cy="224" r="5" />
+        </g>
+      </g>
+
+      <!-- ring 2, R256 -> R205 -->
+      <g opacity="0.68" fill="#2e3a44">
+        <path d="M500,194 A256 256 0 0 1 681,269 L645,305 A205 205 0 0 0 500,245 Z" />
+        <path d="M681,269 A256 256 0 0 1 756,450 L705,450 A205 205 0 0 0 645,305 Z" />
+        <path d="M756,450 A256 256 0 0 1 681,631 L645,595 A205 205 0 0 0 705,450 Z" fill="#212a31" />
+        <path d="M681,631 A256 256 0 0 1 500,706 L500,655 A205 205 0 0 0 645,595 Z" fill="#151a1f" />
+        <path d="M500,706 A256 256 0 0 1 319,631 L355,595 A205 205 0 0 0 500,655 Z" fill="#151a1f" />
+        <path d="M319,631 A256 256 0 0 1 244,450 L295,450 A205 205 0 0 0 355,595 Z" fill="#151a1f" />
+        <path d="M244,450 A256 256 0 0 1 319,269 L355,305 A205 205 0 0 0 295,450 Z" fill="#212a31" />
+        <path d="M319,269 A256 256 0 0 1 500,194 L500,245 A205 205 0 0 0 355,305 Z" />
+      </g>
+
+      <!-- ring 3, R205 -> R164 -->
+      <g opacity="0.52" fill="#28333c">
+        <path d="M500,245 A205 205 0 0 1 645,305 L616,334 A164 164 0 0 0 500,286 Z" />
+        <path d="M645,305 A205 205 0 0 1 705,450 L664,450 A164 164 0 0 0 616,334 Z" />
+        <path d="M705,450 A205 205 0 0 1 645,595 L616,566 A164 164 0 0 0 664,450 Z" fill="#1d252c" />
+        <path d="M645,595 A205 205 0 0 1 500,655 L500,614 A164 164 0 0 0 616,566 Z" fill="#12171b" />
+        <path d="M500,655 A205 205 0 0 1 355,595 L384,566 A164 164 0 0 0 500,614 Z" fill="#12171b" />
+        <path d="M355,595 A205 205 0 0 1 295,450 L336,450 A164 164 0 0 0 384,566 Z" fill="#12171b" />
+        <path d="M295,450 A205 205 0 0 1 355,305 L384,334 A164 164 0 0 0 336,450 Z" fill="#1d252c" />
+        <path d="M355,305 A205 205 0 0 1 500,245 L500,286 A164 164 0 0 0 384,334 Z" />
+      </g>
+
+      <!-- ring 4, R164 -> R131 -->
+      <g opacity="0.36" fill="#222b33">
+        <path d="M500,286 A164 164 0 0 1 616,334 L593,357 A131 131 0 0 0 500,319 Z" />
+        <path d="M616,334 A164 164 0 0 1 664,450 L631,450 A131 131 0 0 0 593,357 Z" />
+        <path d="M664,450 A164 164 0 0 1 616,566 L593,543 A131 131 0 0 0 631,450 Z" fill="#1a2126" />
+        <path d="M616,566 A164 164 0 0 1 500,614 L500,581 A131 131 0 0 0 593,543 Z" fill="#101417" />
+        <path d="M500,614 A164 164 0 0 1 384,566 L407,543 A131 131 0 0 0 500,581 Z" fill="#101417" />
+        <path d="M384,566 A164 164 0 0 1 336,450 L369,450 A131 131 0 0 0 407,543 Z" fill="#101417" />
+        <path d="M336,450 A164 164 0 0 1 384,334 L407,357 A131 131 0 0 0 369,450 Z" fill="#1a2126" />
+        <path d="M384,334 A164 164 0 0 1 500,286 L500,319 A131 131 0 0 0 407,357 Z" />
+      </g>
+
+      <!-- ring 5: farthest, dimmest, R131 -> R105 -->
+      <g opacity="0.22" fill="#1c242a">
+        <path d="M500,319 A131 131 0 0 1 593,357 L574,376 A105 105 0 0 0 500,345 Z" />
+        <path d="M593,357 A131 131 0 0 1 631,450 L605,450 A105 105 0 0 0 574,376 Z" />
+        <path d="M631,450 A131 131 0 0 1 593,543 L574,524 A105 105 0 0 0 605,450 Z" fill="#161c20" />
+        <path d="M593,543 A131 131 0 0 1 500,581 L500,555 A105 105 0 0 0 574,524 Z" fill="#0d1113" />
+        <path d="M500,581 A131 131 0 0 1 407,543 L426,524 A105 105 0 0 0 500,555 Z" fill="#0d1113" />
+        <path d="M407,543 A131 131 0 0 1 369,450 L395,450 A105 105 0 0 0 426,524 Z" fill="#0d1113" />
+        <path d="M369,450 A131 131 0 0 1 407,357 L426,376 A105 105 0 0 0 395,450 Z" fill="#161c20" />
+        <path d="M407,357 A131 131 0 0 1 500,319 L500,345 A105 105 0 0 0 426,376 Z" />
+      </g>
+
+      <!-- the void at the end of the bore -->
+      <circle cx="500" cy="450" r="105" fill="#08090a" />
+
+      <circle class="tunnel-pulse" cx="500" cy="450" r="90" fill="none" stroke="#35e5d1" stroke-width="2" />
+    </svg>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar__mark">&#9670;&nbsp;APP&nbsp;INDEX</div>
+    <nav class="filterbar" id="filterbar">
+      <button class="filter-chip is-active" data-filter="all">All</button>
+      <!-- category chips injected here -->
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Skip<br>the&nbsp;Routine</h1>
+    <p class="subtitle">a running index of internal engineering apps</p>
+  </section>
+
+  <main id="sheet-index">
+    <!-- category sections injected here -->
+  </main>
+
+  <div class="empty-state" id="empty-state" hidden>
+    <p>NO APPS LISTED</p>
+    <p class="empty-state__hint">Add an entry to <code>apps.json</code> to populate this sheet.</p>
+  </div>
+
+  <footer>
+    <span>generated from <code>apps.json</code> — no build step required</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

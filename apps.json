@@ -13,6 +13,12 @@
       "description": "Bin-packing optimizer for structural steel beam cutting, with Excel and PDF report generation."
     },
     {
+      "name": "Plate Cut Optimizer",
+      "category": "steel",
+      "url": "https://plate-bom.streamlit.app",
+      "description": "Bin-packing optimizer for structural steel plate cutting, with Excel and PDF report generation."
+    },
+    {
       "name": "Calc Package",
       "category": "engineering",
       "url": "https://calc-package.streamlit.app/",

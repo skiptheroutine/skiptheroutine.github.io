@@ -7,7 +7,7 @@
   ],
   "apps": [
     {
-      "name": "Beam Cut Optimizer",
+      "name": "Beam/Column Cut Optimizer",
       "category": "steel",
       "url": "https://bom-steel.streamlit.app",
       "description": "Bin-packing optimizer for structural steel beam cutting, with Excel and PDF report generation."

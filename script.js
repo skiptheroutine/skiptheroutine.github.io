@@ -114,8 +114,11 @@ async function init() {
 }
 
 function appSlug(url) {
+  // the filename identifies the app; the hostname is the same for all of
+  // them, which used to collapse every counter onto one shared slug.
   try {
-    return new URL(url).hostname.split('.')[0];
+    const file = new URL(url).pathname.split('/').pop() || '';
+    return file.replace(/\.html?$/i, '') || 'app';
   } catch {
     return 'app';
   }

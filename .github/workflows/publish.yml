@@ -1,0 +1,42 @@
+name: Publish apps
+
+# Runs whenever an HTML file lands in folder/ — however it got there:
+# web UI upload, Codespace push, drag-and-drop.
+on:
+  push:
+    branches: [main]
+    paths: ['folder/**.html']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-apps
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install --quiet pillow
+
+      - run: python3 tools/build_index.py
+
+      - name: Commit any changes
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "nothing to do"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Auto-publish: extract images, sync apps.json [skip ci]"
+          git push
